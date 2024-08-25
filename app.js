@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require('node:path');
 const messageRouter = require("./routes/messageRouter");
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -12,6 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', messageRouter);
 
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log("server is running");
 })
