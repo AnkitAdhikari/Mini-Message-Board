@@ -1,8 +1,10 @@
 <html>
   <head>
-    <title>All Messages</title>
+    <title>Mini Messageboard</title>
   </head>
   <body>
-    <h1>See all messages here</h1>
+    <h1>Mini Messageboard</h1>
+    <% messages.forEach(message => {%> <%- include('message',{message}) %>
+    <%});%>
   </body>
 </html>
