@@ -1,11 +1,19 @@
-<h1>Add new message</h1>
-<form method="POST" action="/new">
-  <label>Name: <input type="text" name="user" /></label>
-  <br />
-  <br />
-  <label>Message: <input type="text" name="text" /></label>
-  <br />
-  <br />
-  <button type="submit">Submit</button>
-</form>
-<a href="/">Back to Message Board</a>
+<html>
+  <head>
+    <title>New Message</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Add new message</h1>
+    <form method="POST" action="/new" class="message-form">
+      <label>Name: <input type="text" name="user" /></label>
+      <br />
+      <br />
+      <label>Message: <input type="text" name="text" /></label>
+      <br />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+    <a href="/" class="back-link">Back to Message Board</a>
+  </body>
+</html>
