@@ -4,7 +4,7 @@
   "description": "Mini Message Board made during Odin Project, this project utilizes basics of expressjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
