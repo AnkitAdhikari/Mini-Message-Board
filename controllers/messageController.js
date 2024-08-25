@@ -30,5 +30,9 @@ const createNewMessage = (req, res) => {
     res.redirect("/");
 }
 
+const getSingleMessage = (req, res) => {
+    const id = req.params.id;
+    res.render('message', { message: messages[id] })
+}
 
-module.exports = { getAllMessages, getNewMessageForm, createNewMessage };
+module.exports = { getAllMessages, getNewMessageForm, createNewMessage, getSingleMessage };
