@@ -6,14 +6,11 @@ async function insertUserAndMessage(user, message) {
 
 async function selectAllMessages() {
     const { rows } = await db.query('SELECT * FROM message_board');
-    console.log(rows);
     return rows;
 }
 
 async function selectSingleMessage(id) {
     const { rows } = await db.query('SELECT * FROM message_board where id=$1', [id]);
-    console.log("selected message");
-    console.log(rows);
     return rows;
 }
 

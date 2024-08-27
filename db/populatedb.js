@@ -20,15 +20,14 @@ VALUES
 `;
 
 async function main() {
-    console.log("seeding...");
-    console.log(process.env.DB_URL);
-    const client = new Client({
-        connectionString: process.env.DB_URL,
-    });
-    await client.connect();
-    await client.query(SQL);
-    await client.end();
-    console.log("done");
+  console.log("seeding...");
+  const client = new Client({
+    connectionString: process.env.DB_URL,
+  });
+  await client.connect();
+  await client.query(SQL);
+  await client.end();
+  console.log("done");
 }
 
 main();
