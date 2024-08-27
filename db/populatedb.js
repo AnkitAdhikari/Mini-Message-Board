@@ -1,5 +1,3 @@
-#! /home/ankit/.nvm/versions/node/v20.16.0/bin/node
-
 const { Client } = require("pg");
 require('dotenv').config();
 
