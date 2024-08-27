@@ -1,23 +1,7 @@
-const messages = [
-    {
-        text: "Hi there!",
-        user: "Amando",
-        added: new Date()
-    },
-    {
-        text: "Hello World!",
-        user: "Charles",
-        added: new Date()
-    },
-    {
-        text: "Express is fun isn't it?",
-        user: "Ankit",
-        added: new Date()
-    }
-];
+const { selectAllMessages, selectSingleMessage, insertUserAndMessage } = require("../db/queries");
 
-
-const getAllMessages = (req, res) => {
+const getAllMessages = async (req, res) => {
+    const messages = await selectAllMessages();
     res.render('messages', { messages: messages });
 }
 
@@ -25,14 +9,19 @@ const getNewMessageForm = (req, res) => {
     res.render('form');
 }
 
-const createNewMessage = (req, res) => {
-    messages.push({ ...req.body, added: new Date() });
+
+
+const createNewMessage = async (req, res) => {
+    let added = Date.now();
+    const { user: username, text: message } = req.body;
+    await insertUserAndMessage(username, message, added);
     res.redirect("/");
 }
 
-const getSingleMessage = (req, res) => {
+const getSingleMessage = async (req, res) => {
     const id = req.params.id;
-    res.render('message', { message: messages[id] })
+    const [message] = await selectSingleMessage(id);
+    res.render('message', { message: message })
 }
 
 module.exports = { getAllMessages, getNewMessageForm, createNewMessage, getSingleMessage };
