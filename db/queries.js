@@ -1,7 +1,7 @@
 const db = require("./pool");
 
 async function insertUserAndMessage(user, message) {
-    await db.query('INSERT INTO message_board (username,message,added) VALUES ($1,$2)', [user, message]);
+    await db.query('INSERT INTO message_board (username,message) VALUES ($1,$2)', [user, message]);
 }
 
 async function selectAllMessages() {
